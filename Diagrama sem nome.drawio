@@ -1,9 +1,76 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" version="24.8.4">
   <diagram name="Página-1" id="044Q7VLD52LfzGAbNxQL">
-    <mxGraphModel>
+    <mxGraphModel dx="1034" dy="446" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-1" value="Thread 1" style="swimlane;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="164.5" y="128" width="280" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-2" value="Usuario abre o &#xa;aplicativo&#xa;" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-1">
+          <mxGeometry x="60" y="110" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-3" value="tela inicial" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-1">
+          <mxGeometry x="60" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-4" value="" style="endArrow=open;strokeColor=#FF0000;endFill=1;rounded=0" edge="1" parent="eUmvbB-2DKv5VENsbGC2-1" source="eUmvbB-2DKv5VENsbGC2-2" target="eUmvbB-2DKv5VENsbGC2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-5" value="usuario mostra a &#xa;água pela sua &#xa;câmera" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-1">
+          <mxGeometry x="60" y="325" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-6" value="" style="endArrow=open;strokeColor=#FF0000;endFill=1;rounded=0" edge="1" parent="eUmvbB-2DKv5VENsbGC2-1" source="eUmvbB-2DKv5VENsbGC2-3" target="eUmvbB-2DKv5VENsbGC2-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-7" value="Thread 2" style="swimlane;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="444.5" y="128" width="280" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-8" value="programa manda a &#xa;foto com zoom para &#xa;um &quot;subprograma&quot;" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-7">
+          <mxGeometry x="15" y="110" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-9" value="programa da um&#xa;zoom na imagem &#xa;para analizar o Ph" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-7">
+          <mxGeometry x="20" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-10" value="" style="endArrow=open;strokeColor=#FF0000;endFill=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="eUmvbB-2DKv5VENsbGC2-7" source="eUmvbB-2DKv5VENsbGC2-9" target="eUmvbB-2DKv5VENsbGC2-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="115.5" y="192" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-11" value="programa recebe a&#xa;foto/video" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-7">
+          <mxGeometry x="20" y="325" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-12" value="" style="endArrow=open;strokeColor=#FF0000;endFill=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="eUmvbB-2DKv5VENsbGC2-7" source="eUmvbB-2DKv5VENsbGC2-11" target="eUmvbB-2DKv5VENsbGC2-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="105.5" y="302" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-13" value="subprograma analisa&#xa; o Ph da água, &#xa;comparando a foto&#xa;com as outras fotos&#xa;do sistema e&#xa; manda pro programa" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-7">
+          <mxGeometry x="139.5" y="397.5" width="110" height="132.5" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-14" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#FF0000;" edge="1" parent="eUmvbB-2DKv5VENsbGC2-7" source="eUmvbB-2DKv5VENsbGC2-13" target="eUmvbB-2DKv5VENsbGC2-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-54.5" y="302" as="sourcePoint" />
+            <mxPoint x="-4.5" y="252" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="265.5" y="142" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-15" value="Thread 3" style="swimlane;whiteSpace=wrap" vertex="1" parent="1">
+          <mxGeometry x="724.5" y="128" width="280" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-16" value="programa cria a &#xa;resposta &#xa;(se é alcalina, ácida &#xa;ou básica)&#xa;e manda ao usuario" style="" vertex="1" parent="eUmvbB-2DKv5VENsbGC2-15">
+          <mxGeometry x="90" y="300" width="110" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-17" value="" style="endArrow=open;strokeColor=#FF0000;endFill=1;rounded=0" edge="1" parent="1" source="eUmvbB-2DKv5VENsbGC2-5" target="eUmvbB-2DKv5VENsbGC2-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eUmvbB-2DKv5VENsbGC2-18" value="" style="edgeStyle=none;strokeColor=#FF0000;endArrow=open;endFill=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="eUmvbB-2DKv5VENsbGC2-13" target="eUmvbB-2DKv5VENsbGC2-16">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="694.5" y="557.5" as="sourcePoint" />
+            <mxPoint x="814.5" y="557.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
