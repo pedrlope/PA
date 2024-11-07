@@ -1,0 +1,96 @@
+# CODIGO AULA 1
+
+using System;
+using System.Collections.Generic;
+using System.Dynamic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace primeiro_projeto
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+   
+   
+            
+                string senha = "12345";  
+                string senhanova = "", digitacao ="", digitacao2 = "";
+                int value;
+
+                
+                Console.WriteLine("Coloque a senha:");
+                senha = Console.ReadLine();
+                Console.WriteLine("Bem-vindo!");
+
+
+            Console.WriteLine(" deseja trocar de senha?");
+                Console.WriteLine("2-------------ALTERAR SENHA.--------");
+                Console.WriteLine("0-------------NÃO ALTERAR.--------");
+            value = int.Parse(Console.ReadLine());
+
+                if (value == 2)
+                {
+                   
+                    Console.WriteLine("Digite a antiga senha:");
+                    digitacao = Console.ReadLine();  
+
+                    
+                    if (digitacao != senha)
+                    {
+                        Console.WriteLine("A senha antiga está incorreta.");
+                    Console.WriteLine("Tente novamente");
+                    digitacao = Console.ReadLine();
+                }
+
+                   
+                    Console.WriteLine("Digite a nova senha:");
+                    senhanova = Console.ReadLine();
+
+                   
+                    Console.WriteLine("Digite novamente a nova senha para confirmação:");
+                    digitacao2 = Console.ReadLine();
+
+                   
+                    if (senhanova != digitacao2)
+                    {
+                        Console.WriteLine("As senhas não coincidem. Tente novamente.");
+                        digitacao2 = Console.ReadLine();
+                }
+                    else
+                    {
+                        
+                        senha = senhanova;
+                        Console.WriteLine("Senha alterada com sucesso!");
+                    }
+                }
+                else if (value == 0)
+                {
+                    Console.WriteLine("Você escolheu não trocar a senha.");
+                }
+                else
+                {
+                    Console.WriteLine("Opção inválida.");
+                }
+            
+        }
+
+    }
+    class Item
+        {
+            public int id;
+            public string name;
+            public string qtd;
+
+            public Item(int id, string name, string qtd)
+            {
+                this.id = id;
+                this.name = name;
+                this.qtd = qtd;
+            }
+        }
+    }
+
