@@ -110,5 +110,23 @@ namespace Personagens.Controllers
             return Ok(pesquisa.Nome + " " + pesquisa.Fantasia);
         }
 
+        [HttpGet("especifico/{local}")]
+        public ActionResult<List<Personagem>>
+            BuscaLocalEspecifica(string local)
+        {
+            var list = new List<Personagem>();
+
+            foreach (var item in personagens)
+            {
+                if (item.Local.ToLower().Contains(local.ToLower()))
+                    list.Add(item);
+            }
+
+            if (list is null)
+                return NotFound($"Essa fantasia não existe {local}");
+
+            return Ok(list);
+        }
+
     }
 }
