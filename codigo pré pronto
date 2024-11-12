@@ -3,13 +3,14 @@
 using Aluguel.Controllers.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace Aluguel.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonagemController : ControllerBase
+    public class CarroController : ControllerBase
     {
         private static List<Carro> carros =
             new List<Carro>
@@ -26,21 +27,73 @@ namespace Aluguel.Controllers
             carros.Add(novo);
             return Ok(carros);
         }
-
         [HttpGet]
         public ActionResult<List<Carro>>
-            LerCarros()
+        LerCarros()
+
         {
-            if (carros == null)
+            return Ok(carros);
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<Carro>
+         LerCarro(int id)
+
+        {
+            var pesquisa = carros.Find(x => x.Id == id);
+            if (id == 0 || pesquisa is null)
             {
-                Console.WriteLine("nenhum carro disponivel para o aluguel");
+
+                return NotFound("Este carro não foi encontrado");
             }
-            else {
-                Return ok(carros);
+            return Ok(pesquisa);
+        }
+
+            [HttpGet("status/{id}")]
+           public ActionResult<List<Carro>>
+          LerCarroStatus(int id)
+
+            {
+                var pesquisa = carros.Find(x => x.Id == id);
+                if (id == 0 || pesquisa is null)
+                {
+
+                    return NotFound("Este carro não foi encontrado");
+                }
+                return Ok(pesquisa);
+
+            }
+            [HttpPut("devolver/{id}")]
+            public ActionResult<Carro>
+                AlugarCarro(int id)
+            {
+                var pesquisa = carros.Find(x => x.Id == id);
+
+                if (pesquisa is null)
+                    return NotFound("Carro não existe");
+
+                pesquisa.Alugado = false;
+
+
+
+
+                return Ok(pesquisa);
+            }
+
+            [HttpPut("alugar/{id}")]
+            public ActionResult<Carro>
+                DevolverCarro(int id, Carro editar)
+            {
+                var pesquisa = carros.Find(x => x.Id == id);
+
+                if (pesquisa is null)
+                    return NotFound("Carro não existe");
+
+                pesquisa.Alugado = true;
+                return Ok(pesquisa);
             }
         }
     }
-}
 
 #MODELOS
 
@@ -64,5 +117,4 @@ namespace Aluguel.Controllers.Models
 
 
 }
-
 
