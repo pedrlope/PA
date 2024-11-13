@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System;
 using System.Linq.Expressions;
+using System.ComponentModel;
 
 public class JUPITER
 {
@@ -11,6 +12,7 @@ public class JUPITER
     {
         string senha = "";
         bool produtos = false;
+        int numeroproduto = 0;
         while (true)
         {
 
@@ -35,13 +37,21 @@ public class JUPITER
                 Console.WriteLine("...");
                 Thread.Sleep(1000);
                 AdicionarProduto(1, "Caixa de Bolete", 10);
+                numeroproduto++;
                 AdicionarProduto(2, "Pirulitos un.", 30);
+                numeroproduto++;
                 AdicionarProduto(3, "Heineken", 6);
+                numeroproduto++;
                 AdicionarProduto(4, "Doce de leite", 20);
+                numeroproduto++;
                 AdicionarProduto(5, "Cigarro", 3);
+                numeroproduto++;
                 AdicionarProduto(6, "Paçoca", 15);
+                numeroproduto++;
                 AdicionarProduto(7, "Água 500ml", 10);
+                numeroproduto++;
                 AdicionarProduto(8, "Coca-cola 2Lt", 4);
+                numeroproduto++;
                 Console.Clear();
                 Console.WriteLine("PRODUTOS ADICIONADOS!");
                 Thread.Sleep(1000);
@@ -63,19 +73,33 @@ public class JUPITER
                 Console.WriteLine("-----------PAINEL DE CONTROLE-----------");
                 Console.WriteLine("");
                 Console.WriteLine("[1] - Vender Produto");
-                Console.WriteLine("[2] - Listar de produtos");
+                Console.WriteLine("[2] - Lista de produtos");
                 Console.WriteLine("[3] - Alterar Senha");
                 Console.WriteLine("[4] - Fechar Caixa");
-               
+
                 int decisao = Convert.ToInt32(Console.ReadLine());
                 switch (decisao)
-                    {
+                {
 
                     case 1:
-                    break;
+
+                        Console.WriteLine("digite o id do seu produto");
+                        Console.ReadLine();
+                        Console.WriteLine("digite o nome do seu produto");
+                        Console.ReadLine();
+                        Console.WriteLine("digite o preco do seu produto");
+                        Console.ReadLine();
+                        
+                        break;
 
                     case 2:
-                    break;
+                        Console.WriteLine("Lista de Produtos");
+                        for (int numero = 0; numeroproduto == numero; numero++) 
+                        {
+                            Console.WriteLine(listaProdutos);
+                            
+                        }
+                        return;
 
                     case 3:
                         Console.WriteLine("Digite a  senha antiga");
@@ -88,29 +112,32 @@ public class JUPITER
                             break;
                         }
                         break;
-                        
+
                     case 4:
 
                         Console.WriteLine("Digite a  senha atual");
                         if (Console.ReadLine() == senha)
                         {
+                            Console.WriteLine("Fechando caixa");
+                            Console.WriteLine("Produtos");
+                            Thread.Sleep(20000);
                             return;
-                            break;
+
                         }
                         else
-                        Console.WriteLine("Tente novamente");
+                            Console.WriteLine("Tente novamente");
                         Console.ReadLine();
-                        break;
+                        return;
 
                 }
-                
+
                 //-------------------
 
                 //1 - COLOCAR O ID DO PRODUTO E DIMINUIR A QUANTIDADE, SE O ID NÃO EXISTE, MOSTRAR UMA MENSAGEM DE ERRO
                 //2 - LISTAR OS PRODUTOS COM A QUANTIDADE ATUALIZADA
                 //3 - ALTERAR A SENHA, PARA ALTERAR DEVE PEDIR A SENHA ANTIGA, SE ESTIVER INCORRETO DAR UM AVISO
                 //4 - PARA FECHAR O CAIXA DEVE SER INSERIDO A SENHA ATUAL, MOSTRAR A LISTA DE PRODUTOS
-                // COM A QUANTIDADE ATUALZIADA E DEPOIS DE 20 SEGUNDOS FINALIZAR O PROGRAMA
+                // COM A QUANTIDADE ATUALZADA E DEPOIS DE 20 SEGUNDOS FINALIZAR O PROGRAMA
 
 
             }
@@ -135,14 +162,17 @@ public class JUPITER
         logo += "                33  00    00  00    00 00    00  !!!\n";
         logo += "          33    33  00    00  00    00 00    00     \n";
         logo += "          3333333   00000000  00000000 00000000  !!!\n";
-
+        
         return logo;
     }
     static void AdicionarProduto(int id, string nome, int quantidade)
     {
         Produto produto = new Produto(id, nome, quantidade);
         listaProdutos.Add(produto);
+        
     }
+    
+    
 }
 class Produto
 {
@@ -156,4 +186,4 @@ class Produto
         Nome = nome;
         Quantidade = quantidade;
     }
-}
+    }
