@@ -71,60 +71,39 @@ public class JUPITER
             else
             {
                 Console.Clear();
+                while(true) { 
                 Console.WriteLine("-----------PAINEL DE CONTROLE-----------");
                 Console.WriteLine("");
                 Console.WriteLine("[1] - Vender Produto");
-                Console.WriteLine("[2] - Lista de produtos");
-                Console.WriteLine("[3] - Alterar Senha");
-                Console.WriteLine("[4] - Fechar Caixa");
+                Console.WriteLine("[2] - Adicionar Produto");
+                Console.WriteLine("[3] - Lista de produtos");
+                Console.WriteLine("[4] - Alterar Senha");
+                Console.WriteLine("[5] - Fechar Caixa");
 
                 int decisao = Convert.ToInt32(Console.ReadLine());
-                switch (decisao)
-                {
+                    switch (decisao)
+                    {
 
-                    case 1:
-                        Console.WriteLine("digite o nome do seu produto");
-                        string name = Console.ReadLine();
-                        Console.WriteLine("digite o qtd do seu produto");
-                        int qatidade = Convert.ToInt32(Console.ReadLine());
-                        int newid = listaProdutos[listaProdutos.Count - 1].Id + 1;
-                        AdicionarProduto(newid, name, qatidade);
-
-                        break;
-
-                    case 2:
-                        Console.WriteLine("Lista de Produtos");
-                        foreach (var produto in listaProdutos)
-                        {
-                            Console.WriteLine($"id: { produto.Id}");
-                            Console.WriteLine(produto.Nome);  
-                            Console.WriteLine($"quantidade: {produto.Quantidade}");
-                            
-                        }
-                        Console.WriteLine("aperte qualquer tecla");
-                        Console.ReadLine();
-                        break;
-
-                    case 3:
-                        Console.WriteLine("Digite a  senha antiga");
-
-                        if (Console.ReadLine() == senha)
-                        {
-                            Console.WriteLine("Digite a nova senha");
-
-                            string senhanew = Console.ReadLine();
-                            senha = senhanew;
+                        case 1:
+                            Console.WriteLine("digite o id do seu produto");
+                            int id2 = Convert.ToInt32(Console.ReadLine());
+                            var product = listaProdutos.Find(x => x.Id == id2);
+                            product.Quantidade--;
                             break;
-                        }
-                        break;
 
-                    case 4:
-                        string teste = "";
-                        Console.WriteLine("Digite a  senha atual");
-                        if (Console.ReadLine() == senha)
-                        {
-                            Console.WriteLine("Fechando caixa");
-                            Console.WriteLine("Produtos");
+
+                        case 2:
+                            Console.WriteLine("digite o nome do seu produto");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("digite o quantidade do seu produto");
+                            int qatidade = Convert.ToInt32(Console.ReadLine());
+                            int newid = listaProdutos[listaProdutos.Count - 1].Id + 1;
+                            AdicionarProduto(newid, name, qatidade);
+
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Lista de Produtos");
                             foreach (var produto in listaProdutos)
                             {
                                 Console.WriteLine($"id: {produto.Id}");
@@ -132,16 +111,50 @@ public class JUPITER
                                 Console.WriteLine($"quantidade: {produto.Quantidade}");
 
                             }
-                            Thread.Sleep(20000);
-
-                            return;
-
-                        }
-                        else
-                            Console.WriteLine("Tente novamente");
+                            Console.WriteLine("aperte qualquer tecla");
                             Console.ReadLine();
-                            return;
+                            break;
 
+                        case 4:
+                            Console.WriteLine("Digite a  senha antiga");
+
+                            if (Console.ReadLine() == senha)
+                            {
+                                Console.WriteLine("Digite a nova senha");
+
+                                string senhanew = Console.ReadLine();
+                                senha = senhanew;
+                                break;
+                            }
+                            break;
+
+                        case 5:
+                            while (true)
+                            {
+                                Console.WriteLine("Digite a  senha atual");
+                                string teste = Console.ReadLine();
+                                if (teste == senha)
+                                {
+                                    Console.WriteLine("Fechando caixa");
+                                    Console.WriteLine("Produtos");
+                                    foreach (var produto in listaProdutos)
+                                    {
+
+                                        Console.WriteLine(produto.Nome);
+                                        Console.WriteLine($"quantidade: {produto.Quantidade}");
+
+                                    }
+                                    Thread.Sleep(20000);
+
+                                    return;
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Tente novamente");
+                                }
+                            }
+                    }
                 }
 
                 //-------------------
