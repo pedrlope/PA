@@ -36,6 +36,7 @@ public class JUPITER
                 Thread.Sleep(1000);
                 Console.WriteLine("...");
                 Thread.Sleep(1000);
+                
                 AdicionarProduto(1, "Caixa de Bolete", 10);
                 numeroproduto++;
                 AdicionarProduto(2, "Pirulitos un.", 30);
@@ -82,24 +83,27 @@ public class JUPITER
                 {
 
                     case 1:
-
-                        Console.WriteLine("digite o id do seu produto");
-                        Console.ReadLine();
                         Console.WriteLine("digite o nome do seu produto");
-                        Console.ReadLine();
-                        Console.WriteLine("digite o preco do seu produto");
-                        Console.ReadLine();
-                        
+                        string name = Console.ReadLine();
+                        Console.WriteLine("digite o qtd do seu produto");
+                        int qatidade = Convert.ToInt32(Console.ReadLine());
+                        int newid = listaProdutos[listaProdutos.Count - 1].Id + 1;
+                        AdicionarProduto(newid, name, qatidade);
+
                         break;
 
                     case 2:
                         Console.WriteLine("Lista de Produtos");
-                        for (int numero = 0; numeroproduto == numero; numero++) 
+                        foreach (var produto in listaProdutos)
                         {
-                            Console.WriteLine(listaProdutos);
+                            Console.WriteLine($"id: { produto.Id}");
+                            Console.WriteLine(produto.Nome);  
+                            Console.WriteLine($"quantidade: {produto.Quantidade}");
                             
                         }
-                        return;
+                        Console.WriteLine("aperte qualquer tecla");
+                        Console.ReadLine();
+                        break;
 
                     case 3:
                         Console.WriteLine("Digite a  senha antiga");
@@ -107,27 +111,36 @@ public class JUPITER
                         if (Console.ReadLine() == senha)
                         {
                             Console.WriteLine("Digite a nova senha");
+
                             string senhanew = Console.ReadLine();
-                            senhanew = senha;
+                            senha = senhanew;
                             break;
                         }
                         break;
 
                     case 4:
-
+                        string teste = "";
                         Console.WriteLine("Digite a  senha atual");
                         if (Console.ReadLine() == senha)
                         {
                             Console.WriteLine("Fechando caixa");
                             Console.WriteLine("Produtos");
+                            foreach (var produto in listaProdutos)
+                            {
+                                Console.WriteLine($"id: {produto.Id}");
+                                Console.WriteLine(produto.Nome);
+                                Console.WriteLine($"quantidade: {produto.Quantidade}");
+
+                            }
                             Thread.Sleep(20000);
+
                             return;
 
                         }
                         else
                             Console.WriteLine("Tente novamente");
-                        Console.ReadLine();
-                        return;
+                            Console.ReadLine();
+                            return;
 
                 }
 
